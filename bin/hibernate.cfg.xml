@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!--mysql:mysql-connector-mxj:5.0.12-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!-- For performance reasons changed to MyISAM from org.hibernate.dialect.MySQLInnoDBDialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL55Dialect</property>
+
+        <!-- Database Settings -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/mydb</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">12345</property>
+        
+        <!-- Properties -->
+
+        <property name="connection.autocommit">true</property>
+
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="showsql">true</property>
+        
+         <!-- Envers Ayarları -->
+        <property name="org.hibernate.envers.audit_table_suffix">_AUD</property>
+        <property name="org.hibernate.envers.revision_field_name">REV</property>
+        <property name="org.hibernate.envers.revision_type_field_name">REVTYPE</property>
+        <property name="org.hibernate.envers.audit_strategy">org.hibernate.envers.strategy.DefaultAuditStrategy</property>
+        <property name="org.hibernate.envers.audit_strategy_validity_store_revend_timestamp">true</property>
+        <property name="org.hibernate.envers.audit_strategy_validity_end_rev_field_name">REVEND</property>
+        
+        
+        <mapping class="Entity.StokKartEntity" ></mapping>
+        <mapping class="Entity.StokTipKartEntity" ></mapping>
+        <mapping class="Entity.KdvTipKartEntity" ></mapping>
+        <mapping class="Entity.FileEntity" ></mapping>
+        
+        
+
+    </session-factory>
+
+</hibernate-configuration>
